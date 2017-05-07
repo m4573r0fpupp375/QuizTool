@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 
 public class CategoriesSet {
-    static LinkedList <String> cats;
+    static LinkedList <String> categories;
 
     static {
         String[] categories = {
@@ -16,7 +16,7 @@ public class CategoriesSet {
                 "Trach"
         };
 
-        cats = new LinkedList<String>();
-        cats.addAll(Arrays.asList(categories));
+        CategoriesSet.categories = new LinkedList<String>();
+        CategoriesSet.categories.addAll(Arrays.asList(categories));
     }
 }
