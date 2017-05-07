@@ -15,6 +15,18 @@ public class MainMenuController {
     @FXML
     public void soloPressed(ActionEvent actionEvent) {
         System.out.println(actionEvent);
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/SoloPrepare.fxml"));
+        Pane pane = null;
+
+        try {
+            pane = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        SoloPrepareController controller = loader.getController();
+        controller.setMainController(mainController);
+        mainController.addToStackPane(pane);
     }
 
     @FXML

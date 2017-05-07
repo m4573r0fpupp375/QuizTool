@@ -71,4 +71,10 @@ public class Question {
     String getMaskedAnswer(int index) {
         return getAnswer(getMask(index));
     }
+
+    public void print() {
+        System.out.println(getId() + ". " + getCategory());
+        System.out.println(getContent());
+        for (String s : answers) System.out.println(s);
+    }
 }
