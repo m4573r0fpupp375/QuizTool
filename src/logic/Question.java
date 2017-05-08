@@ -15,6 +15,7 @@ public class Question {
     public Question(ResultSet resultSet) throws SQLException {
         id = resultSet.getInt("id");
         content = resultSet.getString("content");
+        category = resultSet.getString("cat");
         for (int i = 0; i < 4; i++) {
             answers[i] = resultSet.getString("ans" + i);
         }
@@ -24,7 +25,7 @@ public class Question {
         Random rand = new Random();
         int r1, r2, tmp;
 
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 21; i++) {
             r1 = rand.nextInt() % 4;
             r2 = rand.nextInt() % 4;
             if (r1 < 0) r1 = -r1;
@@ -72,9 +73,22 @@ public class Question {
         return getAnswer(getMask(index));
     }
 
+    public void permuteDebug() {
+        System.out.println("permute debug info:");
+        for (int i=0; i<4; ++i) {
+            System.out.println(i + " " + mask[i]);
+        }
+    }
+
     public void print() {
         System.out.println(getId() + ". " + getCategory());
         System.out.println(getContent());
         for (String s : answers) System.out.println(s);
+    }
+
+    public void printMasked() {
+        System.out.println(getId() + ". " + getCategory());
+        System.out.println(getContent());
+        for (int i : mask) System.out.println(getMaskedAnswer(i));
     }
 }
