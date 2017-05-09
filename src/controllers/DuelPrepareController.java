@@ -6,17 +6,20 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import logic.CategoriesSet;
-import logic.SoloGame;
+import logic.DuelGame;
 
-public class SoloPrepareController extends PrepareController{
-    private SoloGame game;
+/**
+ * Created by Bartek on 09.05.2017. :)
+ */
+public class DuelPrepareController extends PrepareController{
+    private DuelGame game;
 
     @FXML
-    private TextField nicknameTextField;
+    private TextField Player1Nickname;
+    @FXML
+    private TextField Player2Nickname;
 
-    public SoloPrepareController() {
-        game = new SoloGame();
-    }
+    public DuelPrepareController(){game = new DuelGame();}
 
     @FXML
     public void initialize() {

@@ -32,6 +32,18 @@ public class MainMenuController {
     @FXML
     public void duelPressed(ActionEvent actionEvent) {
         System.out.println(actionEvent);
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/DuelPrepare.fxml"));
+        Pane pane = null;
+
+        try {
+            pane = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        DuelPrepareController controller = loader.getController();
+        controller.setMainController(mainController);
+        mainController.addToStackPane(pane);
     }
 
     @FXML
