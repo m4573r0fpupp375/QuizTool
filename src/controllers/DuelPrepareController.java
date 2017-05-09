@@ -13,6 +13,7 @@ import logic.DuelGame;
  */
 public class DuelPrepareController extends PrepareController{
     private DuelGame game;
+    String Nickname1, Nickname2;
 
     @FXML
     private TextField Player1Nickname;
@@ -32,10 +33,20 @@ public class DuelPrepareController extends PrepareController{
 
         EventHandler handler = (e) -> {
             game.setSeries(((Button) e.getSource()).getText());
+
+            Nickname1 = Player1Nickname.getText();
+            Nickname2 = Player2Nickname.getText();
+
+            System.out.println("Players nicknames: "+Nickname1+" "+Nickname2);
         };
 
         button1.addEventHandler(ActionEvent.ACTION, handler);
         button2.addEventHandler(ActionEvent.ACTION, handler);
         button3.addEventHandler(ActionEvent.ACTION, handler);
+    }
+
+    public String getNickame(int i){
+        if(i == 1) return Nickname1;
+        return Nickname2;
     }
 }

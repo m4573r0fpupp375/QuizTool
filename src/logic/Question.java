@@ -49,15 +49,15 @@ public class Question {
         } else state = AnsState.BAD;
     }
 
-    String getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    String getContent() {
+    public String getContent() {
         return content;
     }
 
-    String getAnswer(int index) {
+    public String getAnswer(int index) {
         return answers[mask[index]];
     }
 
