@@ -13,7 +13,8 @@ public class Game {
 
     public void setSeries(String category) {
         series = new Series(category);
-        for (Question q : series) q.print();
+        series.permuteAll();
+        for (Question q : series) q.printMasked();
     }
 
     public LinkedList<String> getBannedCategories() {
