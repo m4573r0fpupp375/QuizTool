@@ -3,12 +3,17 @@ package controllers;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 import logic.CategoriesSet;
+import logic.Question;
 import logic.SoloGame;
 
-public class SoloPrepareController extends PrepareController{
+import java.io.IOException;
+
+public class SoloPrepareController extends PrepareController {
     private SoloGame game;
     private String Nickname1;
 
@@ -28,12 +33,25 @@ public class SoloPrepareController extends PrepareController{
         button3.setText(game.banCategory(
                 new CategoriesSet().getCategory(game.getBannedCategories())));
 
-        EventHandler handler = (e) -> {
-            game.setSeries(((Button) e.getSource()).getText());
+        EventHandler handler = (ev) -> {
+            game.setSeries(((Button) ev.getSource()).getText());
 
             Nickname1 = Player1Nickname.getText();
 
-            System.out.println("Player name: "+Nickname1);
+            System.out.println("Player name: " + Nickname1);
+
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/Question.fxml"));
+            Pane pane = null;
+
+            try {
+                pane = loader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            QuestionController controller = loader.getController();
+            controller.setMainController(this.getMainController());
+            this.getMainController().addToStackPane(pane);
         };
 
         button1.addEventHandler(ActionEvent.ACTION, handler);

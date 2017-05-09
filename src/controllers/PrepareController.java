@@ -11,7 +11,7 @@ import logic.Game;
  * Created by Bartek on 09.05.2017. :)
  */
 public class PrepareController {
-    protected MainController mainController;
+    private MainController mainController;
 
     @FXML
     protected Button button1;
@@ -28,6 +28,8 @@ public class PrepareController {
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
     }
+
+    public MainController getMainController() {return mainController;}
 
     @FXML
     public void backToMainMenu() {
