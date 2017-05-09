@@ -10,9 +10,10 @@ import logic.SoloGame;
 
 public class SoloPrepareController extends PrepareController{
     private SoloGame game;
+    private String Nickname1;
 
     @FXML
-    private TextField nicknameTextField;
+    private TextField Player1Nickname;
 
     public SoloPrepareController() {
         game = new SoloGame();
@@ -29,6 +30,10 @@ public class SoloPrepareController extends PrepareController{
 
         EventHandler handler = (e) -> {
             game.setSeries(((Button) e.getSource()).getText());
+
+            Nickname1 = Player1Nickname.getText();
+
+            System.out.println("Player name: "+Nickname1);
         };
 
         button1.addEventHandler(ActionEvent.ACTION, handler);

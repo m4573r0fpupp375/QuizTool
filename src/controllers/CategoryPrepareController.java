@@ -1,16 +1,15 @@
 package controllers;
 
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import logic.CategoriesSet;
-import logic.Game;
 
 /**
  * Created by Bartek on 09.05.2017. :)
  */
-public class PrepareController {
+public class CategoryPrepareController {
     protected MainController mainController;
 
     @FXML
@@ -20,10 +19,12 @@ public class PrepareController {
     @FXML
     protected Button button3;
 
-    public PrepareController(){}
+    public  CategoryPrepareController(){}
 
     @FXML
-    public void initialize() {}
+    public void initialize() {
+        //todo for Mikolaj
+    }
 
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
