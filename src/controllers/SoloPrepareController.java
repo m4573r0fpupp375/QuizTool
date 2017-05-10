@@ -1,14 +1,12 @@
 package controllers;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import logic.CategoriesSet;
-import logic.Question;
 import logic.SoloGame;
 
 import java.io.IOException;
@@ -32,30 +30,25 @@ public class SoloPrepareController extends PrepareController {
                 new CategoriesSet().getCategory(game.getBannedCategories())));
         button3.setText(game.banCategory(
                 new CategoriesSet().getCategory(game.getBannedCategories())));
+    }
 
-        EventHandler handler = (ev) -> {
-            game.setSeries(((Button) ev.getSource()).getText());
+    @FXML
+    public void askQuestion(ActionEvent actionEvent) {
+        System.out.println(actionEvent);
 
-            Nickname1 = Player1Nickname.getText();
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/QuestionScreen.fxml"));
+        Pane pane = null;
 
-            System.out.println("Player name: " + Nickname1);
+        try {
+            pane = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/Question.fxml"));
-            Pane pane = null;
-
-            try {
-                pane = loader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            QuestionController controller = loader.getController();
-            controller.setMainController(this.getMainController());
-            this.getMainController().addToStackPane(pane);
-        };
-
-        button1.addEventHandler(ActionEvent.ACTION, handler);
-        button2.addEventHandler(ActionEvent.ACTION, handler);
-        button3.addEventHandler(ActionEvent.ACTION, handler);
+        game.setSeries(((Button)actionEvent.getSource()).getText());
+        QuestionScreenController controller = loader.getController();
+        controller.setMainController(getMainController());
+        controller.setGame(game);
+        getMainController().addToStackPane(pane);
     }
 }

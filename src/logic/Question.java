@@ -39,11 +39,11 @@ public class Question {
         }
     }
 
-    AnsState getState() {
+    public AnsState getState() {
         return state;
     }
 
-    void answer(int index) {
+    public void answer(int index) {
         if (mask[index] == 0) {
             state = AnsState.GOOD;
         } else state = AnsState.BAD;
@@ -58,18 +58,18 @@ public class Question {
     }
 
     public String getAnswer(int index) {
-        return answers[mask[index]];
+        return answers[index];
     }
 
-    int getId() {
+    public int getId() {
         return id;
     }
 
-    int getMask(int index) {
+    public int getMask(int index) {
         return mask[index];
     }
 
-    String getMaskedAnswer(int index) {
+    public String getMaskedAnswer(int index) {
         return getAnswer(getMask(index));
     }
 

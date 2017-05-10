@@ -14,7 +14,7 @@ public class Game {
     public void setSeries(String category) {
         series = new Series(category);
         series.permuteAll();
-        for (Question q : series) q.printMasked();
+        //for (Question q : series) q.printMasked();
     }
 
     public LinkedList<String> getBannedCategories() {
@@ -25,4 +25,6 @@ public class Game {
         bannedCategories.add(category);
         return category;
     }
+
+    public Series getSeries() { return series; }
 }
