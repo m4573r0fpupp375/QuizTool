@@ -29,8 +29,8 @@
          </font>
       </Label>
       <Button layoutX="28.0" layoutY="24.0" mnemonicParsing="false" onAction="#backToMainMenu" text="MAIN MENU" />
-      <TextField fx:id="Player1Nickname" layoutX="121.0" layoutY="124.0" prefHeight="40.0" prefWidth="149.0" />
-      <TextField fx:id="Player2Nickname" layoutX="332.0" layoutY="124.0" prefHeight="40.0" prefWidth="149.0" />
+      <TextField fx:id="player1Nickname" layoutX="121.0" layoutY="124.0" prefHeight="40.0" prefWidth="149.0" />
+      <TextField fx:id="player2Nickname" layoutX="332.0" layoutY="124.0" prefHeight="40.0" prefWidth="149.0" />
       <Label layoutX="369.0" layoutY="81.0" text="PLAYER 2">
          <font>
             <Font size="18.0" />

@@ -13,10 +13,10 @@ import java.io.IOException;
 
 public class SoloPrepareController extends PrepareController {
     private SoloGame game;
-    private String Nickname1;
+    private String nickname1;
 
     @FXML
-    private TextField Player1Nickname;
+    private TextField player1Nickname;
 
     public SoloPrepareController() {
         game = new SoloGame();

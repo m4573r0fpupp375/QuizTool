@@ -11,16 +11,19 @@ import logic.DuelGame;
 /**
  * Created by Bartek on 09.05.2017. :)
  */
-public class DuelPrepareController extends PrepareController{
+public class DuelPrepareController extends PrepareController {
     private DuelGame game;
-    String Nickname1, Nickname2;
+    String nickname1;
+    String nickname2;
 
     @FXML
-    private TextField Player1Nickname;
+    private TextField player1Nickname;
     @FXML
-    private TextField Player2Nickname;
+    private TextField player2Nickname;
 
-    public DuelPrepareController(){game = new DuelGame();}
+    public DuelPrepareController() {
+        game = new DuelGame();
+    }
 
     @FXML
     public void initialize() {
@@ -34,10 +37,10 @@ public class DuelPrepareController extends PrepareController{
         EventHandler handler = (e) -> {
             game.setSeries(((Button) e.getSource()).getText());
 
-            Nickname1 = Player1Nickname.getText();
-            Nickname2 = Player2Nickname.getText();
+            nickname1 = player1Nickname.getText();
+            nickname2 = player2Nickname.getText();
 
-            System.out.println("Players nicknames: "+Nickname1+" "+Nickname2);
+            System.out.println("Players nicknames: " + nickname1 + " " + nickname2);
         };
 
         button1.addEventHandler(ActionEvent.ACTION, handler);
@@ -45,8 +48,9 @@ public class DuelPrepareController extends PrepareController{
         button3.addEventHandler(ActionEvent.ACTION, handler);
     }
 
-    public String getNickame(int i){
-        if(i == 1) return Nickname1;
-        return Nickname2;
+    public String getNickame(int i) {
+        if (i == 1) return nickname1;
+        if (i == 2) return nickname2;
+        return null;
     }
 }
