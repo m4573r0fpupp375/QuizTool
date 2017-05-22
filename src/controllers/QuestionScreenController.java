@@ -4,8 +4,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import logic.AnsState;
 import logic.Game;
 import logic.Question;
+
+import static java.lang.Thread.sleep;
+import static logic.AnsState.GOOD;
+
 
 public class QuestionScreenController {
     private Game game;
@@ -43,6 +49,7 @@ public class QuestionScreenController {
         ans3.setWrapText(true);
         ans4.setWrapText(true);
         questionNumber = 0;
+
     }
 
     public void setQuestion(Question question) {
@@ -56,7 +63,7 @@ public class QuestionScreenController {
     }
 
     @FXML
-    public void setAnswer(ActionEvent actionEvent) {
+    public void setAnswer(MouseEvent actionEvent) {
         System.out.println(actionEvent);
         int tmp = 0;
         if (actionEvent.getSource() == ans1) tmp = 0;
@@ -66,7 +73,12 @@ public class QuestionScreenController {
 
         question.answer(tmp);
         System.out.println(question.getState());
+        x((Button) actionEvent.getSource(), question.getState());
 
+        loadNextQuestion();
+    }
+
+    public void loadNextQuestion() {
         if (questionNumber < game.getSeries().size()) {
             setQuestion(game.getSeries().get(questionNumber));
         } else System.out.println("Out of questions!");
@@ -75,5 +87,36 @@ public class QuestionScreenController {
     public void setGame(Game game) {
         this.game = game;
         setQuestion(game.getSeries().get(0));
+    }
+
+    @FXML
+    public void setchoosen(MouseEvent mouseEvent) {
+        if(mouseEvent.getSource() == ans1) ans1.setStyle("-fx-background-color:#FFCC00;");
+        if(mouseEvent.getSource() == ans2) ans2.setStyle("-fx-background-color:#FFCC00;");
+        if(mouseEvent.getSource() == ans3) ans3.setStyle("-fx-background-color:#FFCC00;");
+        if(mouseEvent.getSource() == ans4) ans4.setStyle("-fx-background-color:#FFCC00;");
+    }
+    @FXML
+    public void unsetchoosen(MouseEvent mouseEvent) {
+        if(mouseEvent.getSource() == ans1) ans1.setStyle("");
+        if(mouseEvent.getSource() == ans2) ans2.setStyle("");
+        if(mouseEvent.getSource() == ans3) ans3.setStyle("");
+        if(mouseEvent.getSource() == ans4) ans4.setStyle("");
+    }
+
+    public void x (Button button, AnsState AS){
+        button.setStyle("");
+
+    if (AS == GOOD) {
+        button.setStyle("-fx-background-color:#00FF00;");
+    } else {
+        button.setStyle("-fx-background-color:#FF0000;");
+    }
+
+        try {
+            sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

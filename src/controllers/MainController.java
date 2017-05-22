@@ -2,6 +2,7 @@ package controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
@@ -31,6 +32,7 @@ public class MainController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
 
         MainMenuController controller = loader.getController();
         controller.setMainController(this);

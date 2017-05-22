@@ -3,10 +3,14 @@ package controllers;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 import logic.CategoriesSet;
 import logic.DuelGame;
+
+import java.io.IOException;
 
 /**
  * Created by Bartek on 09.05.2017. :)
@@ -46,6 +50,26 @@ public class DuelPrepareController extends PrepareController {
         button1.addEventHandler(ActionEvent.ACTION, handler);
         button2.addEventHandler(ActionEvent.ACTION, handler);
         button3.addEventHandler(ActionEvent.ACTION, handler);
+    }
+
+    @FXML
+    public void askQuestion(ActionEvent actionEvent) {
+        System.out.println(actionEvent);
+
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/QuestionScreen.fxml"));
+        Pane pane = null;
+
+        try {
+            pane = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        game.setSeries(((Button)actionEvent.getSource()).getText());
+        QuestionScreenController controller = loader.getController();
+        controller.setMainController(getMainController());
+        controller.setGame(game);
+        getMainController().addToStackPane(pane);
     }
 
     public String getNickame(int i) {
