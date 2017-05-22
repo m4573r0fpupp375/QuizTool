@@ -8,6 +8,7 @@ import javafx.scene.input.MouseEvent;
 import logic.AnsState;
 import logic.Game;
 import logic.Question;
+import oracle.jrockit.jfr.jdkevents.ThrowableTracer;
 
 import static java.lang.Thread.sleep;
 import static logic.AnsState.GOOD;
@@ -17,6 +18,8 @@ public class QuestionScreenController {
     private Game game;
     private int questionNumber;
     private Question question;
+    private boolean changingColors = true;
+    private boolean nextQuestion = false;
 
     @FXML
     private Button ans3;
@@ -49,10 +52,14 @@ public class QuestionScreenController {
         ans3.setWrapText(true);
         ans4.setWrapText(true);
         questionNumber = 0;
-
     }
 
     public void setQuestion(Question question) {
+        ans1.setStyle("");
+        ans2.setStyle("");
+        ans3.setStyle("");
+        ans4.setStyle("");
+
         this.question = question;
         questionLabel.setText(questionNumber + 1 + ". " + question.getContent());
         ans1.setText(question.getMaskedAnswer(0));
@@ -73,9 +80,17 @@ public class QuestionScreenController {
 
         question.answer(tmp);
         System.out.println(question.getState());
-        x((Button) actionEvent.getSource(), question.getState());
 
-        loadNextQuestion();
+        if(!nextQuestion) {
+            setCorespondingColor((Button) actionEvent.getSource(), question.getState());
+            changingColors = false;
+            nextQuestion = true;
+        }
+        else {
+            loadNextQuestion();
+            changingColors = true;
+            nextQuestion = false;
+        }
     }
 
     public void loadNextQuestion() {
@@ -91,6 +106,7 @@ public class QuestionScreenController {
 
     @FXML
     public void setchoosen(MouseEvent mouseEvent) {
+        if (!changingColors) return;
         if(mouseEvent.getSource() == ans1) ans1.setStyle("-fx-background-color:#FFCC00;");
         if(mouseEvent.getSource() == ans2) ans2.setStyle("-fx-background-color:#FFCC00;");
         if(mouseEvent.getSource() == ans3) ans3.setStyle("-fx-background-color:#FFCC00;");
@@ -98,25 +114,21 @@ public class QuestionScreenController {
     }
     @FXML
     public void unsetchoosen(MouseEvent mouseEvent) {
+        if (!changingColors) return;
         if(mouseEvent.getSource() == ans1) ans1.setStyle("");
         if(mouseEvent.getSource() == ans2) ans2.setStyle("");
         if(mouseEvent.getSource() == ans3) ans3.setStyle("");
         if(mouseEvent.getSource() == ans4) ans4.setStyle("");
     }
 
-    public void x (Button button, AnsState AS){
+    public void setCorespondingColor(Button button, AnsState AS){
         button.setStyle("");
-
-    if (AS == GOOD) {
-        button.setStyle("-fx-background-color:#00FF00;");
-    } else {
-        button.setStyle("-fx-background-color:#FF0000;");
-    }
-
-        try {
-            sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        System.out.println(button.getStyle());
+        if (AS == GOOD) {
+            button.setStyle("-fx-background-color:#00FF00;");
+        } else {
+            button.setStyle("-fx-background-color:#FF0000;");
         }
+        System.out.println(button.getStyle());
     }
 }
