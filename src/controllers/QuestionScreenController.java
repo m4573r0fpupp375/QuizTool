@@ -2,16 +2,24 @@ package controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 import logic.Game;
 import logic.Question;
+
+import java.io.IOException;
 
 public class QuestionScreenController {
     private Game game;
     private int questionNumber;
     private Question question;
 
+    @FXML
+    public Label setLabel;
+    @FXML
+    public Label qLabel;
     @FXML
     private Button ans3;
     @FXML
@@ -46,8 +54,9 @@ public class QuestionScreenController {
     }
 
     public void setQuestion(Question question) {
+        qLabel.setText("Q: " + (questionNumber + 1) + " / 5");
         this.question = question;
-        questionLabel.setText(questionNumber + 1 + ". " + question.getContent());
+        questionLabel.setText(question.getContent());
         ans1.setText(question.getMaskedAnswer(0));
         ans2.setText(question.getMaskedAnswer(1));
         ans3.setText(question.getMaskedAnswer(2));
@@ -69,11 +78,46 @@ public class QuestionScreenController {
 
         if (questionNumber < game.getSeries().size()) {
             setQuestion(game.getSeries().get(questionNumber));
-        } else System.out.println("Out of questions!");
+        } else {
+            System.out.println("Out of questions! Continuing...");
+            game.incrementSeriesNo();
+
+            if (game.getSeriesNo() == 3) {
+                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/MainMenu.fxml"));
+                Pane pane = null;
+
+                try {
+                    pane = loader.load();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                MainMenuController controller = loader.getController();
+                controller.setMainController(mainController);
+                mainController.addToStackPane(pane);
+            }
+            else {
+                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/Continue.fxml"));
+                Pane pane = null;
+
+                try {
+                    pane = loader.load();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                ContinueController controller = loader.getController();
+                controller.setMainController(mainController);
+                controller.setGame(game);
+                mainController.addToStackPane(pane);
+            }
+        }
     }
 
     public void setGame(Game game) {
         this.game = game;
         setQuestion(game.getSeries().get(0));
+        setLabel.setText("Set: " + (game.getSeriesNo() + 1) + " / 3");
+        qLabel.setText("Q: 1 / 5");
     }
 }

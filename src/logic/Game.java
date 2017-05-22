@@ -6,6 +6,7 @@ public class Game {
 
     private LinkedList<String> bannedCategories;
     private Series series;
+    private int seriesNo = 0;
 
     public Game() {
         bannedCategories = new LinkedList<>();
@@ -27,4 +28,12 @@ public class Game {
     }
 
     public Series getSeries() { return series; }
+
+    public void incrementSeriesNo() {
+        seriesNo++;
+    }
+
+    public int getSeriesNo() {
+        return seriesNo;
+    }
 }

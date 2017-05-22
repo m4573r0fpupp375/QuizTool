@@ -1,5 +1,7 @@
 package logic;
 
+import javafx.application.Platform;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -21,9 +23,10 @@ public class QuestionsGetter {
             connection.setAutoCommit(false);
 
             //id, cat, content, ans0, ans1, ans2, ans3
-            Statement statement = connection.createStatement();
-            String sqlQuery = "select * from Questions where cat like '" + category + "';";
-            ResultSet resultSet = statement.executeQuery(sqlQuery);
+            String sqlQuery = "select * from Questions where cat like ?;";
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+            preparedStatement.setString(1, category);
+            ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
                 QuestionId.add(resultSet.getInt("id"));
@@ -41,8 +44,10 @@ public class QuestionsGetter {
 
                 taken.set(r, true);
 
-                String idQuery = "select  * from Questions where id = " + QuestionId.get(r) + " ;";
-                ResultSet tmp = statement.executeQuery(idQuery);
+                sqlQuery = "select  * from Questions where id = ? ;";
+                preparedStatement = connection.prepareStatement(sqlQuery);
+                preparedStatement.setInt(1, QuestionId.get(r));
+                ResultSet tmp = preparedStatement.executeQuery();
 
                 result.add(new Question(tmp));
             }
