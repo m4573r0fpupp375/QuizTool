@@ -76,7 +76,7 @@ public class QuestionScreenController {
     }
 
     @FXML
-    public void setAnswer(MouseEvent actionEvent) {
+    public void setAnswer(ActionEvent actionEvent) {
         System.out.println(actionEvent);
         int tmp = 0;
         if (actionEvent.getSource() == ans1) tmp = 0;
@@ -88,7 +88,7 @@ public class QuestionScreenController {
         System.out.println(question.getState());
 
         if(!nextQuestion) {
-            setCorespondingColor((Button) actionEvent.getSource(), question.getState());
+            setCorrespondingColor((Button) actionEvent.getSource(), question.getState());
             changingColors = false;
             nextQuestion = true;
         }
@@ -146,15 +146,15 @@ public class QuestionScreenController {
     }
 
     @FXML
-    public void setchoosen(MouseEvent mouseEvent) {
+    public void reDye(MouseEvent mouseEvent) {
         if (!changingColors) return;
-        if(mouseEvent.getSource() == ans1) ans1.setStyle("-fx-background-color:#FFCC00;");
-        if(mouseEvent.getSource() == ans2) ans2.setStyle("-fx-background-color:#FFCC00;");
-        if(mouseEvent.getSource() == ans3) ans3.setStyle("-fx-background-color:#FFCC00;");
-        if(mouseEvent.getSource() == ans4) ans4.setStyle("-fx-background-color:#FFCC00;");
+        if(mouseEvent.getSource() == ans1) ans1.setStyle("-fx-background-color:#fcfa63;");
+        if(mouseEvent.getSource() == ans2) ans2.setStyle("-fx-background-color:#fcfa63;");
+        if(mouseEvent.getSource() == ans3) ans3.setStyle("-fx-background-color:#fcfa63;");
+        if(mouseEvent.getSource() == ans4) ans4.setStyle("-fx-background-color:#fcfa63;");
     }
     @FXML
-    public void unsetchoosen(MouseEvent mouseEvent) {
+    public void dye(MouseEvent mouseEvent) {
         if (!changingColors) return;
         if(mouseEvent.getSource() == ans1) ans1.setStyle("");
         if(mouseEvent.getSource() == ans2) ans2.setStyle("");
@@ -162,13 +162,13 @@ public class QuestionScreenController {
         if(mouseEvent.getSource() == ans4) ans4.setStyle("");
     }
 
-    public void setCorespondingColor(Button button, AnsState AS){
+    public void setCorrespondingColor(Button button, AnsState AS){
         button.setStyle("");
         System.out.println(button.getStyle());
         if (AS == GOOD) {
-            button.setStyle("-fx-background-color:#00FF00;");
+            button.setStyle("-fx-background-color:#9aee7d");
         } else {
-            button.setStyle("-fx-background-color:#FF0000;");
+            button.setStyle("-fx-background-color:#ff7581;");
         }
         System.out.println(button.getStyle());
     }
