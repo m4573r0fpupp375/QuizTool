@@ -5,22 +5,22 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DuelQuestionScreenController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyReleased="#setAnswer" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DuelQuestionScreenController">
    <children>
       <Button layoutX="28.0" layoutY="24.0" mnemonicParsing="false" onAction="#backToMainMenu" text="MAIN MENU" />
-      <Button fx:id="ans3" layoutX="25.0" layoutY="281.0" mnemonicParsing="false" onKeyPressed="#setAnswer" prefHeight="100.0" prefWidth="270.0" text="Button">
+      <Button fx:id="ans3" layoutX="25.0" layoutY="281.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="270.0" text="Button">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button fx:id="ans4" layoutX="306.0" layoutY="281.0" mnemonicParsing="false" onKeyPressed="#setAnswer" prefHeight="100.0" prefWidth="270.0" text="Button">
+      <Button fx:id="ans4" layoutX="306.0" layoutY="281.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="270.0" text="Button">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button fx:id="ans1" layoutX="25.0" layoutY="171.0" mnemonicParsing="false" onKeyPressed="#setAnswer" prefHeight="100.0" prefWidth="270.0" text="Button">
+      <Button fx:id="ans1" layoutX="25.0" layoutY="171.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="270.0" text="Button">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button fx:id="ans2" layoutX="306.0" layoutY="171.0" mnemonicParsing="false" onKeyPressed="#setAnswer" prefHeight="100.0" prefWidth="270.0" text="Button">
+      <Button fx:id="ans2" layoutX="306.0" layoutY="171.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="270.0" text="Button">
          <font>
             <Font size="18.0" />
          </font></Button>
