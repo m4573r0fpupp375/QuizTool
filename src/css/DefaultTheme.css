@@ -3,13 +3,17 @@ Pane {
 }
 
 .button {
-    -fx-background-radius: 5px;
+    -fx-border-width: 2px;
+    -fx-border-color: black;
+    -fx-border-style: dotted;
+    -fx-border-radius: 7px;
+    -fx-background-radius: 7px;
     -fx-background-color: gainsboro;
-    -fx-text-fill: slategray;
+    -fx-text-fill: #2d343d;
 }
 
 .button:hover {
-    -fx-background-radius: 7px;
-    -fx-background-color: #abc4dc;
+    -fx-border-style: dashed;
+    -fx-background-color: #e4e23a;
     -fx-text-fill: #553f4e;
 }

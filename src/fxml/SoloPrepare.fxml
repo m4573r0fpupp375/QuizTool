@@ -23,12 +23,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <TextField fx:id="player1Nickname" layoutX="169.0" layoutY="83.0">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </TextField>
-      <Label layoutX="252.0" layoutY="37.0" text="NICKNAME">
+      <Label layoutX="251.0" layoutY="40.0" text="NICKNAME">
          <font>
             <Font size="18.0" />
          </font>
@@ -39,5 +34,10 @@
          </font>
       </Label>
       <Button layoutX="28.0" layoutY="24.0" mnemonicParsing="false" onAction="#backToMainMenu" text="MAIN MENU" />
+      <TextField fx:id="player1Nickname" layoutX="171.0" layoutY="75.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
    </children>
 </Pane>
