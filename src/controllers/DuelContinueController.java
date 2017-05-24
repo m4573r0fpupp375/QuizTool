@@ -13,18 +13,11 @@ import java.io.IOException;
 public class DuelContinueController extends PrepareController {
     private Game game;
 
-    public DuelContinueController() {
-        game = new Game();
-    }
-
     @FXML
-    public void initialize() {
-        button1.setText(game.banCategory(
-                new CategoriesSet().getCategory(game.getBannedCategories())));
-        button2.setText(game.banCategory(
-                new CategoriesSet().getCategory(game.getBannedCategories())));
-        button3.setText(game.banCategory(
-                new CategoriesSet().getCategory(game.getBannedCategories())));
+    public void prepareButtons() {
+        button1.setText(new CategoriesSet().getCategory(game.getBannedCategories()));
+        button2.setText(new CategoriesSet().getCategory(game.getBannedCategories()));
+        button3.setText(new CategoriesSet().getCategory(game.getBannedCategories()));
     }
 
     @FXML
@@ -40,7 +33,12 @@ public class DuelContinueController extends PrepareController {
             e.printStackTrace();
         }
 
-        game.setSeries(((Button)actionEvent.getSource()).getText());
+        String cat = ((Button)actionEvent.getSource()).getText();
+        game.setSeries(cat);
+        game.getBannedCategories().removeLast();
+        game.getBannedCategories().removeLast();
+        game.getBannedCategories().removeLast();
+        game.banCategory(cat);
         DuelQuestionScreenController controller = loader.getController();
         controller.setMainController(getMainController());
         controller.setGame(game);
@@ -49,5 +47,6 @@ public class DuelContinueController extends PrepareController {
 
     public void setGame(Game game) {
         this.game = game;
+        prepareButtons();
     }
 }

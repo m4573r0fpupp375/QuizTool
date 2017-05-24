@@ -29,6 +29,7 @@ public class CategoriesSet {
             r = rand.nextInt() % categories.size();
             r = r < 0 ? -r : r;
         } while (banned.contains(categories.get(r)));
+        banned.addLast(categories.get(r));
         return categories.get(r);
     }
 }

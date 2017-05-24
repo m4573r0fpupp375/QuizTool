@@ -2,7 +2,6 @@ package controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
@@ -24,6 +23,7 @@ public class MainController {
     }
 
     public void reinitialize() {
+        mainStackPane.getStylesheets().add("/css/DefaultTheme.css");
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/MainMenu.fxml"));
         Pane pane = null;
 

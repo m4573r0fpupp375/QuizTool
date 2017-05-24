@@ -24,19 +24,16 @@ public class SoloPrepareController extends PrepareController {
 
     @FXML
     public void initialize() {
-        button1.setText(game.banCategory(
-                new CategoriesSet().getCategory(game.getBannedCategories())));
-        button2.setText(game.banCategory(
-                new CategoriesSet().getCategory(game.getBannedCategories())));
-        button3.setText(game.banCategory(
-                new CategoriesSet().getCategory(game.getBannedCategories())));
+        button1.setText(new CategoriesSet().getCategory(game.getBannedCategories()));
+        button2.setText(new CategoriesSet().getCategory(game.getBannedCategories()));
+        button3.setText(new CategoriesSet().getCategory(game.getBannedCategories()));
     }
 
     @FXML
     public void askQuestion(ActionEvent actionEvent) {
         System.out.println(actionEvent);
 
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/QuestionScreen.fxml"));
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/SoloQuestionScreen.fxml"));
         Pane pane = null;
 
         try {
@@ -45,8 +42,13 @@ public class SoloPrepareController extends PrepareController {
             e.printStackTrace();
         }
 
-        game.setSeries(((Button)actionEvent.getSource()).getText());
-        QuestionScreenController controller = loader.getController();
+        String cat = ((Button)actionEvent.getSource()).getText();
+        game.setSeries(cat);
+        game.getBannedCategories().removeLast();
+        game.getBannedCategories().removeLast();
+        game.getBannedCategories().removeLast();
+        game.banCategory(cat);
+        SoloQuestionScreenController controller = loader.getController();
         controller.setMainController(getMainController());
         controller.setGame(game);
         getMainController().addToStackPane(pane);

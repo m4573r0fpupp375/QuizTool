@@ -31,15 +31,18 @@ public class DuelPrepareController extends PrepareController {
 
     @FXML
     public void initialize() {
-        button1.setText(game.banCategory(
-                new CategoriesSet().getCategory(game.getBannedCategories())));
-        button2.setText(game.banCategory(
-                new CategoriesSet().getCategory(game.getBannedCategories())));
-        button3.setText(game.banCategory(
-                new CategoriesSet().getCategory(game.getBannedCategories())));
+        button1.setText(new CategoriesSet().getCategory(game.getBannedCategories()));
+        button2.setText(new CategoriesSet().getCategory(game.getBannedCategories()));
+        button3.setText(new CategoriesSet().getCategory(game.getBannedCategories()));
 
         EventHandler handler = (e) -> {
-            game.setSeries(((Button) e.getSource()).getText());
+
+            String cat = ((Button)e.getSource()).getText();
+            game.setSeries(cat);
+            game.getBannedCategories().removeLast();
+            game.getBannedCategories().removeLast();
+            game.getBannedCategories().removeLast();
+            game.banCategory(cat);
 
             nickname1 = player1Nickname.getText();
             nickname2 = player2Nickname.getText();

@@ -1,7 +1,5 @@
 package logic;
 
-import javafx.application.Platform;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.LinkedList;

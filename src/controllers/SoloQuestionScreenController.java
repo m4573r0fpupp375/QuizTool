@@ -15,7 +15,7 @@ import static logic.AnsState.GOOD;
 
 import java.io.IOException;
 
-public class QuestionScreenController {
+public class SoloQuestionScreenController {
     private Game game;
     private int questionNumber;
     private Question question;
@@ -164,12 +164,10 @@ public class QuestionScreenController {
 
     public void setCorrespondingColor(Button button, AnsState AS){
         button.setStyle("");
-        System.out.println(button.getStyle());
         if (AS == GOOD) {
             button.setStyle("-fx-background-color:#9aee7d");
         } else {
             button.setStyle("-fx-background-color:#ff7581;");
         }
-        System.out.println(button.getStyle());
     }
 }

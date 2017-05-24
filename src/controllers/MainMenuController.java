@@ -4,11 +4,17 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 
 public class MainMenuController {
+
+    public Button solo;
+    public Button duel;
+    public Button options;
+    public Button exit;
 
     private MainController mainController;
 

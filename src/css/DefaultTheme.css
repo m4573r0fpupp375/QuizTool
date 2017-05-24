@@ -1,0 +1,15 @@
+Pane {
+    -fx-background-color: #c2dff9;
+}
+
+.button {
+    -fx-background-radius: 5px;
+    -fx-background-color: gainsboro;
+    -fx-text-fill: slategray;
+}
+
+.button:hover {
+    -fx-background-radius: 7px;
+    -fx-background-color: #abc4dc;
+    -fx-text-fill: #553f4e;
+}
