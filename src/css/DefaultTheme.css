@@ -1,19 +1,21 @@
-Pane {
-    -fx-background-color: #c2dff9;
+.root {
+    -fx-background-color: #fffdd0;
 }
 
 .button {
+    -fx-background-color: linear-gradient(#00cd67 0%, #00f882 30%, #00f882 60%, #00cd67 95%);
     -fx-border-width: 2px;
     -fx-border-color: black;
-    -fx-border-style: dotted;
+    -fx-border-style: solid;
     -fx-border-radius: 7px;
     -fx-background-radius: 7px;
-    -fx-background-color: gainsboro;
-    -fx-text-fill: #2d343d;
+    -fx-text-fill: #023d12;
 }
 
 .button:hover {
-    -fx-border-style: dashed;
-    -fx-background-color: #e4e23a;
-    -fx-text-fill: #553f4e;
+    -fx-background-color: linear-gradient(#00b059 0%, #00ee81 30%, #00ee81 60%, #00b059 95%);
+}
+
+.text-field {
+
 }

@@ -27,6 +27,9 @@ public class SoloPrepareController extends PrepareController {
         button1.setText(new CategoriesSet().getCategory(game.getBannedCategories()));
         button2.setText(new CategoriesSet().getCategory(game.getBannedCategories()));
         button3.setText(new CategoriesSet().getCategory(game.getBannedCategories()));
+
+        System.out.println(player1Nickname.getFont().getStyle());
+        player1Nickname.getStyleClass().add("custom");
     }
 
     @FXML
