@@ -107,7 +107,7 @@ public class SoloQuestionScreenController {
             game.incrementSeriesNo();
 
             if (game.getSeriesNo() == 3) {
-                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/MainMenu.fxml"));
+                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/SoloSummaryScreen.fxml"));
                 Pane pane = null;
 
                 try {
@@ -116,7 +116,7 @@ public class SoloQuestionScreenController {
                     e.printStackTrace();
                 }
 
-                MainMenuController controller = loader.getController();
+                SoloSummaryController controller = loader.getController();
                 controller.setMainController(mainController);
                 mainController.addToStackPane(pane);
             }
