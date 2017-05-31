@@ -20,7 +20,7 @@ public class MainController {
 
     @FXML
     public void initialize() {
-        currentSheet = "Degault Theme";
+        currentSheet = "Default Theme";
         mainStackPane.getStylesheets().add("/css/DefaultTheme.css");
         reinitialize();
     }

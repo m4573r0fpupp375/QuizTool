@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SoloSummaryController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DuelSummaryController">
    <children>
       <Button fx:id="button1" layoutX="65.0" layoutY="282.0" mnemonicParsing="false" onAction="#playAgain" prefHeight="50.0" prefWidth="140.0" text="Button">
          <font>
@@ -27,9 +27,24 @@
          <font>
             <Font name="System Italic" size="37.0" />
          </font></Label>
-      <Label layoutX="135.0" layoutY="157.0" prefHeight="68.0" prefWidth="331.0" text="Points:" textFill="#000d06">
+      <Label fx:id="score2" layoutX="369.0" layoutY="200.0" prefHeight="37.0" prefWidth="149.0" text="score2" textFill="#000d06">
          <font>
-            <Font size="25.0" />
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="score1" layoutX="80.0" layoutY="200.0" prefHeight="37.0" prefWidth="149.0" text="score1" textFill="#000d06">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="player2" layoutX="385.0" layoutY="157.0" prefHeight="37.0" prefWidth="149.0" text="Label" textFill="#000d06">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="player1" layoutX="96.0" layoutY="157.0" prefHeight="37.0" prefWidth="149.0" text="Label" textFill="#000d06">
+         <font>
+            <Font size="18.0" />
          </font>
       </Label>
    </children>

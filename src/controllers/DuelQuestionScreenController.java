@@ -132,7 +132,7 @@ public class DuelQuestionScreenController {
             game.incrementSeriesNo();
 
             if (game.getSeriesNo() == 3) {
-                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/MainMenu.fxml"));
+                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/DuelSummaryScreen.fxml"));
                 Pane pane = null;
 
                 try {
@@ -141,7 +141,7 @@ public class DuelQuestionScreenController {
                     e.printStackTrace();
                 }
 
-                MainMenuController controller = loader.getController();
+                DuelSummaryController controller = loader.getController();
                 controller.setMainController(mainController);
                 mainController.addToStackPane(pane);
             }

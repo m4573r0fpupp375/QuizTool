@@ -3,7 +3,7 @@
 }
 
 .button {
-    -fx-background-color: linear-gradient(#00cd67 0%, #00f882 30%, #00f882 60%, #00cd67 95%);
+    -fx-background-color: linear-gradient(#05b5cd 0%, #24f0f8 30%, #24f0f8 60%, #05b5cd 95%);
     -fx-border-width: 2px;
     -fx-border-color: black;
     -fx-border-style: solid;
@@ -13,7 +13,7 @@
 }
 
 .button:hover {
-    -fx-background-color: linear-gradient(#00b059 0%, #00ee81 30%, #00ee81 60%, #00b059 95%);
+    -fx-background-color: linear-gradient(#0496ab 0%, #1fd2d9 30%, #1fd2d9 60%, #0496ab 95%);
 }
 
 .text-field {

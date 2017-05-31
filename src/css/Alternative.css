@@ -1,17 +1,25 @@
 .root {
-    -fx-background-color: #ffcecf;
+    -fx-background-color: #302a36;
+}
+
+.label {
+    -fx-text-fill: #fefffe;
+}
+
+themeChoiceBox {
+    -fx-text-fill: #b9ff6d;
 }
 
 .button {
-    -fx-background-color: linear-gradient(#4272cd 0%, #4e95ff 30%, #4e95ff 60%, #4272cd 95%);
+    -fx-background-color: linear-gradient(#e8e4ea 0%, #fffefa 30%, #fffefa 60%, #e8e4ea 95%);
     -fx-border-width: 2px;
-    -fx-border-color: #e0e9ff;
+    -fx-border-color: #5d5c5a;
     -fx-border-style: solid;
-    -fx-text-fill: #e0e9ff;
+    -fx-text-fill: #141313;
 }
 
 .button:hover {
-    -fx-background-color: linear-gradient(#375aa6 0%, #4680de 30%, #4680de 60%, #375aa6 95%);
+    -fx-background-color: linear-gradient(#e8e4ea 0%, #fffefa 30%, #fffefa 60%, #e8e4ea 95%);
 }
 
 .text-field {

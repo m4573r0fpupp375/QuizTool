@@ -5,15 +5,24 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import logic.CategoriesSet;
+import logic.DuelGame;
 
 import java.io.IOException;
 
-public class SoloSummaryController {
-    public Button button1;
-    public Button button2;
-    public Button button3;
+public class DuelSummaryController {
+    @FXML
+    private Button button1;
+    @FXML
+    private Button button2;
+    @FXML
+    private Button button3;
+
+    @FXML
+    private Label player1;
+    @FXML
+    private Label player2;
 
     private MainController mainController;
 
@@ -26,6 +35,8 @@ public class SoloSummaryController {
         button1.setText("PLAY AGAIN");
         button2.setText("RANK");
         button3.setText("EXIT");
+        //player1.setText(((DuelGame)mainController.getGame()).getPlayer1());
+        //player2.setText(((DuelGame)mainController.getGame()).getPlayer2());
     }
 
     @FXML
@@ -41,7 +52,7 @@ public class SoloSummaryController {
     @FXML
     public void playAgain(ActionEvent actionEvent) {
         System.out.println(actionEvent);
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/SoloPrepare.fxml"));
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/DuelPrepare.fxml"));
         Pane pane = null;
 
         try {
@@ -50,7 +61,7 @@ public class SoloSummaryController {
             e.printStackTrace();
         }
 
-        SoloPrepareController controller = loader.getController();
+        DuelPrepareController controller = loader.getController();
         controller.setMainController(mainController);
         mainController.addToStackPane(pane);
     }
