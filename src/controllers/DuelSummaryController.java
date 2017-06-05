@@ -47,7 +47,18 @@ public class DuelSummaryController {
     @FXML
     public void showRank(ActionEvent actionEvent) {
         System.out.println(actionEvent);
-        mainController.reinitialize();
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/RankingScreen.fxml"));
+        Pane pane = null;
+        System.out.println(loader);
+        try {
+            pane = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        RankingController controller = loader.getController();
+        controller.setMainController(mainController);
+        mainController.addToStackPane(pane);
     }
     @FXML
     public void playAgain(ActionEvent actionEvent) {
