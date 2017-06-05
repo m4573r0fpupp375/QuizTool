@@ -15,27 +15,43 @@ public class RankAdder {
             connection.setAutoCommit(false);
 
             //name, result
-            String sqlQuery = "select count(*) from Rank;";
+            String sqlQuery = "SELECT COUNT(*) FROM Rank";
             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             Integer rankCnt = resultSet.getInt(1);
 
             if (rankCnt < 10) {
-                sqlQuery = "insert into Rank (name, points) values (" + rankRecord.name + ", " + rankRecord.result + ");";
+                sqlQuery = "INSERT INTO Rank(name, points) VALUES (?, ?)";
                 preparedStatement = connection.prepareStatement(sqlQuery);
-                preparedStatement.executeQuery();
-            }
-            else {
-                sqlQuery = "select * from Rank order by 1 desc limit 1;";
+                preparedStatement.setString(1, rankRecord.name);
+                preparedStatement.setInt(2, rankRecord.result);
+                System.out.println(preparedStatement);
+                preparedStatement.executeUpdate();
+                connection.commit();
+            } else {
+                sqlQuery = "SELECT * FROM Rank ORDER BY 2 LIMIT 1";
                 preparedStatement = connection.prepareStatement(sqlQuery);
-                preparedStatement.executeQuery();
+                resultSet = preparedStatement.executeQuery();
 
-                if (resultSet.getInt(2) < rankRecord.result) {
-                    sqlQuery = "delete from table from Rank where name like "
-                            + resultSet.getString("name") + " and points = " + resultSet.getInt(2) + ";";
+                String prevName = resultSet.getString("name");
+                Integer prevResult = resultSet.getInt("points");
+
+                if (prevResult < rankRecord.result) {
+                    sqlQuery = "DELETE FROM Rank WHERE name LIKE ? AND points = ?";
                     preparedStatement = connection.prepareStatement(sqlQuery);
-                    preparedStatement.executeQuery();
+                    preparedStatement.setString(1, prevName);
+                    preparedStatement.setInt(2, prevResult);
+                    preparedStatement.executeUpdate();
+                    connection.commit();
+
+
+                    sqlQuery = "INSERT INTO Rank VALUES (?, ?);";
+                    preparedStatement = connection.prepareStatement(sqlQuery);
+                    preparedStatement.setString(1, rankRecord.name);
+                    preparedStatement.setInt(2, rankRecord.result);
+                    preparedStatement.executeUpdate();
+                    connection.commit();
                 }
             }
 
@@ -49,23 +65,6 @@ public class RankAdder {
                 e.printStackTrace();
                 System.exit(0);
             }
-        }
-    }
-
-    public static void main(String []args) {
-        LinkedList<RankRecord> records = new RankGetter().get();
-        for (RankRecord r : records) {
-            System.out.println(r);
-        }
-
-        RankAdder rankAdder = new RankAdder();
-        for (int i=0; i<12; ++i) {
-            rankAdder.add(new RankRecord("Jan" + i, 69+i));
-        }
-
-        records = new RankGetter().get();
-        for (RankRecord r : records) {
-            System.out.println(r);
         }
     }
 }

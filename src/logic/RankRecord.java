@@ -10,4 +10,8 @@ public class RankRecord extends LinkedList {
         this.name = name;
         this.result  = result;
     }
+
+    public String toString() {
+        return name + " " + result;
+    }
 }
