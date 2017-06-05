@@ -2,26 +2,19 @@
     -fx-background-color: #302a36;
 }
 
-.label {
-    -fx-text-fill: #fefffe;
+Label {
+    -fx-text-fill: white;
 }
 
-themeChoiceBox {
-    -fx-text-fill: #b9ff6d;
+.choice-box > .label {
+    -fx-text-fill: black;
 }
 
 .button {
-    -fx-background-color: linear-gradient(#e8e4ea 0%, #fffefa 30%, #fffefa 60%, #e8e4ea 95%);
-    -fx-border-width: 2px;
-    -fx-border-color: #5d5c5a;
-    -fx-border-style: solid;
+    -fx-background-color: linear-gradient(#c8c4ca 0%, #fffefa 30%, #fffefa 60%, #c8c4ca 95%);
     -fx-text-fill: #141313;
 }
 
 .button:hover {
-    -fx-background-color: linear-gradient(#e8e4ea 0%, #fffefa 30%, #fffefa 60%, #e8e4ea 95%);
-}
-
-.text-field {
-
+    -fx-background-color: linear-gradient(#808e82 0%, #d2d1ce 30%, #d2d1ce 60%, #808e82 95%);
 }
