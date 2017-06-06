@@ -7,15 +7,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
 import logic.DuelGame;
 
 import java.io.IOException;
 
 public class DuelSummaryController {
     @FXML
-    private Button button1;
+    private Label winner;
     @FXML
-    private Button button2;
+    private Button button1;
     @FXML
     private Button button3;
 
@@ -23,22 +24,41 @@ public class DuelSummaryController {
     private Label player1;
     @FXML
     private Label player2;
+    @FXML
+    private Label score1;
+    @FXML
+    private Label score2;
 
+    private DuelGame duelGame;
     private MainController mainController;
 
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
     }
 
+    public void setSummary(DuelGame duelGame){
+        this.duelGame = duelGame;
+        winner.setFont(Font.font(25));
+        if(duelGame.getPlayer1points() > duelGame.getPlayer2points()){
+            winner.setText("The winner is: "+duelGame.getPlayer1()+"!");
+        }
+        else if(duelGame.getPlayer1points() == duelGame.getPlayer2points()){
+            winner.setText("Draw!");
+        }
+        else{
+            winner.setText("The winner is: "+duelGame.getPlayer2()+"!");
+        }
+        player1.setText(duelGame.getPlayer1());
+        player2.setText(duelGame.getPlayer2());
+        score1.setText(duelGame.getPlayer1points()+" points");
+        score2.setText(duelGame.getPlayer2points()+" points");
+    }
+
     @FXML
     public void initialize() {
         button1.setText("PLAY AGAIN");
-        button2.setText("RANK");
         button3.setText("EXIT");
-        //player1.setText(((DuelGame)mainController.getGame()).getPlayer1());
-        //player2.setText(((DuelGame)mainController.getGame()).getPlayer2());
     }
-
     @FXML
     public void backToMainMenu(ActionEvent actionEvent) {
         System.out.println(actionEvent);
@@ -61,6 +81,7 @@ public class DuelSummaryController {
         controller.loadRank();
         mainController.addToStackPane(pane);
     }
+
     @FXML
     public void playAgain(ActionEvent actionEvent) {
         System.out.println(actionEvent);

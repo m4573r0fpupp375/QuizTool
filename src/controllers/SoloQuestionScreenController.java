@@ -6,10 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import logic.AnsState;
+import logic.*;
 import javafx.scene.layout.Pane;
-import logic.Game;
-import logic.Question;
+
 import static logic.AnsState.GOOD;
 
 
@@ -17,6 +16,7 @@ import java.io.IOException;
 
 public class SoloQuestionScreenController {
     private Game game;
+    private SoloGame soloGame;
     private int questionNumber;
     private Question question;
     private boolean changingColors = true;
@@ -107,6 +107,9 @@ public class SoloQuestionScreenController {
             game.incrementSeriesNo();
 
             if (game.getSeriesNo() == 3) {
+                RankAdder rankAdder = new RankAdder();
+                rankAdder.add(new RankRecord(soloGame.getPlayer(), soloGame.getPlayerpoints()));
+
                 FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/SoloSummaryScreen.fxml"));
                 Pane pane = null;
 
@@ -118,6 +121,7 @@ public class SoloQuestionScreenController {
 
                 SoloSummaryController controller = loader.getController();
                 controller.setMainController(mainController);
+                controller.setSummary(soloGame);
                 mainController.addToStackPane(pane);
             }
             else {
@@ -138,8 +142,9 @@ public class SoloQuestionScreenController {
         }
     }
 
-    public void setGame(Game game) {
+    public void setGame(SoloGame game) {
         this.game = game;
+        this.soloGame = game;
         setQuestion(game.getSeries().get(0));
         setLabel.setText("Set: " + (game.getSeriesNo() + 1) + " / 3");
         qLabel.setText("Q: 1 / 5");
@@ -165,8 +170,10 @@ public class SoloQuestionScreenController {
     public void setCorrespondingColor(Button button, AnsState AS){
         button.setStyle("");
         if (AS == GOOD) {
+            this.soloGame.setPlayerpoints(soloGame.getPlayerpoints() + 1);
             button.setStyle("-fx-background-color:#9aee7d");
         } else {
+            this.soloGame.setPlayerpoints(soloGame.getPlayerpoints() - 1);
             button.setStyle("-fx-background-color:#ff7581;");
         }
     }

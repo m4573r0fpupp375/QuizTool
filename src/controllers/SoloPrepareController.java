@@ -36,6 +36,9 @@ public class SoloPrepareController extends PrepareController {
     public void askQuestion(ActionEvent actionEvent) {
         System.out.println(actionEvent);
 
+        nickname1 = player1Nickname.getText();
+        game.setPlayer(nickname1);
+
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/SoloQuestionScreen.fxml"));
         Pane pane = null;
 
