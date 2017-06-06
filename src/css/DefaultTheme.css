@@ -1,17 +1,20 @@
 .root {
-    -fx-background-color: #c82d21;
+    -fx-background-color: #302a36;
+}
+
+Label {
+    -fx-text-fill: white;
+}
+
+.choice-box > .label {
+    -fx-text-fill: black;
 }
 
 .button {
-    -fx-background-color: linear-gradient(#05b5cd 0%, #24f0f8 30%, #24f0f8 60%, #05b5cd 95%);
-    -fx-border-width: 2px;
-    -fx-border-color: black;
-    -fx-border-style: solid;
-    -fx-border-radius: 7px;
-    -fx-background-radius: 7px;
-    -fx-text-fill: #023d12;
+    -fx-background-color: linear-gradient(#c8c4ca 0%, #fffefa 30%, #fffefa 60%, #c8c4ca 95%);
+    -fx-text-fill: #141313;
 }
 
 .button:hover {
-    -fx-background-color: linear-gradient(#0496ab 0%, #1fd2d9 30%, #1fd2d9 60%, #0496ab 95%);
+    -fx-background-color: linear-gradient(#808e82 0%, #d2d1ce 30%, #d2d1ce 60%, #808e82 95%);
 }

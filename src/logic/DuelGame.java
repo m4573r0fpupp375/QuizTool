@@ -8,7 +8,7 @@ public class DuelGame extends Game {
 
     public DuelGame(){
         player1 = player2 = "unknow";
-        player1points = player2points = 0;
+        player1points = player2points = 15;
     }
 
     public DuelGame(String nick1, Integer points1, String nick2, Integer points2){

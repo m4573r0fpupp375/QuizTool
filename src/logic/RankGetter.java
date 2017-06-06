@@ -35,10 +35,7 @@ public class RankGetter {
                 System.exit(0);
             }
         }
-        System.out.println(result.size());
-        for(int i=0; i<result.size(); i++){
-            System.out.println(result.get(i).name+" "+result.get(i).points);
-        }
+
         return result;
     }
 }

@@ -8,7 +8,7 @@ public class SoloGame extends Game {
 
     public SoloGame(){
         this.player = "unknow";
-        this.points = 0;
+        this.points = 15;
     }
 
     public SoloGame(String nick, Integer points){

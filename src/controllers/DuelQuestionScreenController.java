@@ -10,6 +10,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import logic.AnsState;
+import logic.DuelGame;
 import logic.Game;
 import logic.Question;
 
@@ -20,10 +21,12 @@ import static logic.AnsState.GOOD;
 
 public class DuelQuestionScreenController {
     private Game game;
+    private DuelGame duelGame;
     private int questionNumber;
     private Question question;
     private boolean changingColors = true;
     private boolean nextQuestion = false;
+    private KeyCode[] tab = {KeyCode.Q, KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.O, KeyCode.P, KeyCode.K, KeyCode.L};
 
     @FXML
     public Label setLabel;
@@ -81,7 +84,6 @@ public class DuelQuestionScreenController {
     @FXML
     public void setAnswer(KeyEvent keyEvent) {
         boolean keycheck = false;
-        KeyCode[] tab = {KeyCode.Q, KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.O, KeyCode.P, KeyCode.K, KeyCode.L};
         for(int i=0; i<8; i++){
             if(keyEvent.getCode() == tab[i]) keycheck = true;
         }
@@ -110,6 +112,7 @@ public class DuelQuestionScreenController {
 
         question.answer(tmp);
         System.out.println(question.getState());
+        setPoint(question.getState(), keyEvent);
 
         if(!nextQuestion) {
             System.out.println(keyEvent.getSource());
@@ -143,6 +146,7 @@ public class DuelQuestionScreenController {
 
                 DuelSummaryController controller = loader.getController();
                 controller.setMainController(mainController);
+                controller.setSummary(duelGame);
                 mainController.addToStackPane(pane);
             }
             else {
@@ -163,7 +167,8 @@ public class DuelQuestionScreenController {
         }
     }
 
-    public void setGame(Game game) {
+    public void setGame(DuelGame game) {
+        this.duelGame = game;
         this.game = game;
         setQuestion(game.getSeries().get(0));
         setLabel.setText("Set: " + (game.getSeriesNo() + 1) + " / 3");
@@ -180,5 +185,24 @@ public class DuelQuestionScreenController {
             button.setStyle("-fx-background-color:#ff7581;");
         }
         System.out.println(button.getStyle());
+    }
+
+    public void setPoint(AnsState ansState, KeyEvent keyEvent){
+        if(question.getState() == GOOD){
+            for(int i=0; i<4; i++){
+                if(keyEvent.getCode() == tab[i]) {
+                    duelGame.setPlayer1points(duelGame.getPlayer1points()+1);
+                }
+            }
+            duelGame.setPlayer2points(duelGame.getPlayer2points()+1);
+        }
+        else{
+            for(int i=0; i<4; i++){
+                if(keyEvent.getCode() == tab[i]) {
+                    duelGame.setPlayer1points(duelGame.getPlayer1points()-1);
+                }
+            }
+            duelGame.setPlayer2points(duelGame.getPlayer2points()-1);
+        }
     }
 }
