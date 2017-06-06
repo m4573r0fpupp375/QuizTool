@@ -7,17 +7,12 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DuelSummaryController">
    <children>
-      <Button fx:id="button1" layoutX="65.0" layoutY="282.0" mnemonicParsing="false" onAction="#playAgain" prefHeight="50.0" prefWidth="140.0" text="Button">
+      <Button fx:id="button1" layoutX="85.0" layoutY="282.0" mnemonicParsing="false" onAction="#playAgain" prefHeight="50.0" prefWidth="184.0" text="Button">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="button2" layoutX="229.0" layoutY="282.0" mnemonicParsing="false" onAction="#showRank" prefHeight="50.0" prefWidth="140.0" text="Button">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="button3" layoutX="394.0" layoutY="282.0" mnemonicParsing="false" onAction="#exitPressed" prefHeight="50.0" prefWidth="140.0" text="Button">
+      <Button fx:id="button3" layoutX="340.0" layoutY="282.0" mnemonicParsing="false" onAction="#exitPressed" prefHeight="50.0" prefWidth="184.0" text="Button">
          <font>
             <Font size="14.0" />
          </font>
@@ -27,22 +22,22 @@
          <font>
             <Font name="System Italic" size="37.0" />
          </font></Label>
-      <Label fx:id="score2" alignment="CENTER" layoutX="369.0" layoutY="200.0" prefHeight="37.0" prefWidth="149.0" text="score2" textAlignment="CENTER" textFill="#000d06">
+      <Label fx:id="score2" alignment="CENTER" layoutX="349.0" layoutY="200.0" prefHeight="37.0" prefWidth="149.0" text="score2" textAlignment="CENTER" textFill="#000d06">
          <font>
             <Font name="System Italic" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="score1" alignment="CENTER" layoutX="80.0" layoutY="200.0" prefHeight="37.0" prefWidth="149.0" text="score1" textAlignment="CENTER" textFill="#000d06">
+      <Label fx:id="score1" alignment="CENTER" layoutX="110.0" layoutY="200.0" prefHeight="37.0" prefWidth="149.0" text="score1" textAlignment="CENTER" textFill="#000d06">
          <font>
             <Font name="System Italic" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="player2" alignment="CENTER" layoutX="367.0" layoutY="157.0" prefHeight="37.0" prefWidth="149.0" text="Label" textFill="#000d06">
+      <Label fx:id="player2" alignment="CENTER" layoutX="347.0" layoutY="157.0" prefHeight="37.0" prefWidth="149.0" text="Label" textFill="#000d06">
          <font>
             <Font name="System Italic" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="player1" alignment="CENTER" layoutX="79.0" layoutY="157.0" prefHeight="37.0" prefWidth="149.0" text="Label" textFill="#000d06">
+      <Label fx:id="player1" alignment="CENTER" layoutX="109.0" layoutY="157.0" prefHeight="37.0" prefWidth="149.0" text="Label" textFill="#000d06">
          <font>
             <Font name="System Italic" size="18.0" />
          </font>

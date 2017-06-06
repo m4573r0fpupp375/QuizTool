@@ -6,11 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import logic.AnsState;
+import logic.*;
 import javafx.scene.layout.Pane;
-import logic.Game;
-import logic.Question;
-import logic.SoloGame;
 
 import static logic.AnsState.GOOD;
 
@@ -110,6 +107,9 @@ public class SoloQuestionScreenController {
             game.incrementSeriesNo();
 
             if (game.getSeriesNo() == 3) {
+                RankAdder rankAdder = new RankAdder();
+                rankAdder.add(new RankRecord(soloGame.getPlayer(), soloGame.getPlayerpoints()));
+
                 FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/SoloSummaryScreen.fxml"));
                 Pane pane = null;
 

@@ -59,6 +59,11 @@ public class DuelPrepareController extends PrepareController {
     public void askQuestion(ActionEvent actionEvent) {
         System.out.println(actionEvent);
 
+        nickname1 = player1Nickname.getText();
+        nickname2 = player2Nickname.getText();
+        game.setPlayer1(nickname1);
+        game.setPlayer2(nickname2);
+
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/DuelQuestionScreen.fxml"));
         Pane pane = null;
 

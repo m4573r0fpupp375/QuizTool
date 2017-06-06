@@ -18,8 +18,6 @@ public class DuelSummaryController {
     @FXML
     private Button button1;
     @FXML
-    private Button button2;
-    @FXML
     private Button button3;
 
     @FXML
@@ -44,6 +42,9 @@ public class DuelSummaryController {
         if(duelGame.getPlayer1points() > duelGame.getPlayer2points()){
             winner.setText("The winner is: "+duelGame.getPlayer1()+"!");
         }
+        else if(duelGame.getPlayer1points() == duelGame.getPlayer2points()){
+            winner.setText("Draw!");
+        }
         else{
             winner.setText("The winner is: "+duelGame.getPlayer2()+"!");
         }
@@ -56,7 +57,6 @@ public class DuelSummaryController {
     @FXML
     public void initialize() {
         button1.setText("PLAY AGAIN");
-        button2.setText("RANK");
         button3.setText("EXIT");
     }
     @FXML
