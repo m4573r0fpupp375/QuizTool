@@ -23,13 +23,13 @@
          </font>
       </Button>
       <Button layoutX="28.0" layoutY="24.0" mnemonicParsing="false" onAction="#backToMainMenu" text="MAIN MENU" />
-      <Label alignment="CENTER" layoutX="118.0" layoutY="66.0" prefHeight="91.0" prefWidth="363.0" text="Congratulations!" textAlignment="CENTER" textFill="#0f4d4c">
+      <Label fx:id="text" alignment="CENTER" layoutX="118.0" layoutY="66.0" prefHeight="91.0" prefWidth="363.0" text="Congratulations!" textAlignment="CENTER" textFill="#0f4d4c">
          <font>
-            <Font name="System Italic" size="37.0" />
+            <Font name="System Italic" size="28.0" />
          </font></Label>
-      <Label layoutX="135.0" layoutY="157.0" prefHeight="68.0" prefWidth="331.0" text="Points:" textFill="#000d06">
+      <Label fx:id="points" alignment="CENTER" layoutX="135.0" layoutY="157.0" prefHeight="68.0" prefWidth="331.0" text="Points:" textAlignment="CENTER" textFill="#000d06">
          <font>
-            <Font size="25.0" />
+            <Font name="System Italic" size="21.0" />
          </font>
       </Label>
    </children>

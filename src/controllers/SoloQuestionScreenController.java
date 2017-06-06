@@ -10,6 +10,8 @@ import logic.AnsState;
 import javafx.scene.layout.Pane;
 import logic.Game;
 import logic.Question;
+import logic.SoloGame;
+
 import static logic.AnsState.GOOD;
 
 
@@ -17,6 +19,7 @@ import java.io.IOException;
 
 public class SoloQuestionScreenController {
     private Game game;
+    private SoloGame soloGame;
     private int questionNumber;
     private Question question;
     private boolean changingColors = true;
@@ -118,6 +121,7 @@ public class SoloQuestionScreenController {
 
                 SoloSummaryController controller = loader.getController();
                 controller.setMainController(mainController);
+                controller.setSummary(soloGame);
                 mainController.addToStackPane(pane);
             }
             else {
@@ -138,8 +142,9 @@ public class SoloQuestionScreenController {
         }
     }
 
-    public void setGame(Game game) {
+    public void setGame(SoloGame game) {
         this.game = game;
+        this.soloGame = game;
         setQuestion(game.getSeries().get(0));
         setLabel.setText("Set: " + (game.getSeriesNo() + 1) + " / 3");
         qLabel.setText("Q: 1 / 5");
@@ -165,8 +170,10 @@ public class SoloQuestionScreenController {
     public void setCorrespondingColor(Button button, AnsState AS){
         button.setStyle("");
         if (AS == GOOD) {
+            this.soloGame.setPlayerpoints(soloGame.getPlayerpoints() + 1);
             button.setStyle("-fx-background-color:#9aee7d");
         } else {
+            this.soloGame.setPlayerpoints(soloGame.getPlayerpoints() - 1);
             button.setStyle("-fx-background-color:#ff7581;");
         }
     }

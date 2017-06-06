@@ -1,9 +1,9 @@
 .root {
-    -fx-background-color: #070707;
+    -fx-background-color: #efe3bd;
 }
 
 .button {
-    -fx-background-color: linear-gradient(#fff7f7 0%, #ffa144 30%, #fff7f7 60%, #fff7f7 95%);
+    -fx-background-color: linear-gradient(#fff7f7 0%, #e4bdef 30%, #e4bdef 60%, #e4bdef 95%);
     -fx-border-width: 2px;
     -fx-border-color: black;
     -fx-border-style: solid;
@@ -13,5 +13,5 @@
 }
 
 .button:hover {
-    -fx-background-color: linear-gradient(#0496ab 0%, #099970 30%, #9b9999 60%, #d3d1d1 95%);
+    -fx-background-color: linear-gradient(#0496ab 0%, #6a7da5 30%, #6a7da5 60%, #d3d1d1 95%);
 }

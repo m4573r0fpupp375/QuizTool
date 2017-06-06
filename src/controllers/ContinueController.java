@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import logic.CategoriesSet;
 import logic.Game;
+import logic.SoloGame;
 
 import java.io.IOException;
 
@@ -40,7 +41,7 @@ public class ContinueController extends PrepareController {
         game.banCategory(cat);
         SoloQuestionScreenController controller = loader.getController();
         controller.setMainController(getMainController());
-        controller.setGame(game);
+        controller.setGame((SoloGame) game);
         getMainController().addToStackPane(pane);
         System.out.println(game.getBannedCategories());
     }

@@ -8,7 +8,6 @@ public class Game {
     private Series series;
     private int seriesNo = 0;
 
-
     public Game() {
         bannedCategories = new LinkedList<>();
     }

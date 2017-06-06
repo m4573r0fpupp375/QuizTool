@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import logic.CategoriesSet;
+import logic.DuelGame;
 import logic.Game;
 
 import java.io.IOException;
@@ -41,7 +42,7 @@ public class DuelContinueController extends PrepareController {
         game.banCategory(cat);
         DuelQuestionScreenController controller = loader.getController();
         controller.setMainController(getMainController());
-        controller.setGame(game);
+        controller.setGame((DuelGame) game);
         getMainController().addToStackPane(pane);
     }
 
