@@ -175,6 +175,11 @@ public class SoloQuestionScreenController {
         } else {
             this.soloGame.setPlayerpoints(soloGame.getPlayerpoints() - 1);
             button.setStyle("-fx-background-color:#ff7581;");
+            Integer id = question.getRightAnswer();
+            if(id == 0) ans1.setStyle("-fx-background-color:#9aee7d");
+            else if(id == 1) ans2.setStyle("-fx-background-color:#9aee7d");
+            else if(id == 2) ans3.setStyle("-fx-background-color:#9aee7d");
+            else if(id == 3) ans4.setStyle("-fx-background-color:#9aee7d");
         }
     }
 }

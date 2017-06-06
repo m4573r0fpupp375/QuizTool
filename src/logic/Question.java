@@ -73,22 +73,10 @@ public class Question {
         return getAnswer(getMask(index));
     }
 
-    public void permuteDebug() {
-        System.out.println("permute debug info:");
-        for (int i=0; i<4; ++i) {
-            System.out.println(i + " " + mask[i]);
+    public Integer getRightAnswer(){
+        for(int i = 0; i < 4; i++){
+            if(mask[i] == 0) return i;
         }
-    }
-
-    public void print() {
-        System.out.println(getId() + ". " + getCategory());
-        System.out.println(getContent());
-        for (String s : answers) System.out.println(s);
-    }
-
-    public void printMasked() {
-        System.out.println(getId() + ". " + getCategory());
-        System.out.println(getContent());
-        for (int i : mask) System.out.println(getMaskedAnswer(i));
+        return 0;
     }
 }
