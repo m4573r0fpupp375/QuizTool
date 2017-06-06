@@ -6,7 +6,7 @@ public class RankRecord extends LinkedList {
     String name;
     Integer points;
 
-    RankRecord(String name, Integer points) {
+    public RankRecord(String name, Integer points) {
         this.name = name;
         this.points = points;
     }

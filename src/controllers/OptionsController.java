@@ -21,6 +21,7 @@ public class OptionsController {
         sources = new HashMap<>();
         sources.put("Default Theme", "/css/DefaultTheme.css");
         sources.put("Alternative", "/css/Alternative.css");
+        sources.put("Bart Skin", "/css/Bart.css");
     }
 
     @FXML

@@ -9,17 +9,15 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import logic.RankGetter;
 import logic.RankRecord;
-
-import java.util.Iterator;
 import java.util.LinkedList;
 
 public class RankingController {
     @FXML
-    private TableView<RankRecord> table = new TableView<>();
+    private TableView<RankRecord> table;
     @FXML
-    private TableColumn<RankRecord, String> name = new TableColumn<>("NICKNAME");
+    private TableColumn<RankRecord, String> name;
     @FXML
-    private TableColumn<RankRecord, Integer> points = new TableColumn<>("POINTS");
+    private TableColumn<RankRecord, Integer> points;
 
     private MainController mainController;
     private RankGetter rankGetter = new RankGetter();
@@ -44,7 +42,6 @@ public class RankingController {
         }
 
         table.setItems(items);
-        table.getColumns().addAll(name, points);
     }
 
     @FXML
