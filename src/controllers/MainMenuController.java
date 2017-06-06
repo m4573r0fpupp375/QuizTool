@@ -54,6 +54,24 @@ public class MainMenuController {
     }
 
     @FXML
+    public void showRank(ActionEvent actionEvent) {
+        System.out.println(actionEvent);
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/RankingScreen.fxml"));
+        Pane pane = null;
+
+        try {
+            pane = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        RankingController controller = loader.getController();
+        controller.setMainController(mainController);
+        controller.loadRank();
+        mainController.addToStackPane(pane);
+    }
+
+    @FXML
     public void optionsPressed(ActionEvent actionEvent) {
         System.out.println(actionEvent);
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/Options.fxml"));
