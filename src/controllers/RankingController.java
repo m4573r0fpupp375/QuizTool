@@ -21,25 +21,29 @@ public class RankingController {
 
     private MainController mainController;
     private RankGetter rankGetter = new RankGetter();
-    private LinkedList<RankRecord> rankList = new LinkedList<>();
 
     @FXML
     public void initialize() {
         table.setVisible(true);
         table.setEditable(false);
-        table.setStyle("");
+        table.setSelectionModel(null);
 
-        name.setCellValueFactory(new PropertyValueFactory<RankRecord, String>("name"));
-        points.setCellValueFactory(new PropertyValueFactory<RankRecord, Integer>("points"));
+        name.impl_setReorderable(false);
+        name.setResizable(false);
+        name.setSortable(false);
+        name.setEditable(false);
+        name.setCellValueFactory(new PropertyValueFactory<>("name"));
+        points.impl_setReorderable(false);
+        points.setResizable(false);
+        points.setSortable(false);
+        points.setEditable(false);
+        points.setCellValueFactory(new PropertyValueFactory<>("points"));
     }
 
     public void loadRank(){
+        LinkedList<RankRecord> rankList = rankGetter.get();
         final ObservableList<RankRecord> items = FXCollections.observableArrayList();
-        rankList = rankGetter.get();
-
-        for(int i=0; i<rankList.size(); i++) {
-            items.add(new RankRecord(rankList.get(i).getName(), rankList.get(i).getPoints()));
-        }
+        items.addAll(rankList);
 
         table.setItems(items);
     }

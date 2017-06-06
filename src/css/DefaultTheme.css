@@ -18,3 +18,33 @@ Label {
 .button:hover {
     -fx-background-color: linear-gradient(#808e82 0%, #d2d1ce 30%, #d2d1ce 60%, #808e82 95%);
 }
+
+.table-view{
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background{
+    -fx-background-color: inherit;
+}
+
+.table-view .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 22;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.table-view .table-cell{
+    -fx-font-size: 14;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+}
+
+.table-row-cell{
+    -fx-background-color: transparent;
+    -fx-background-insets: 0, 0 0 1 0;
+}

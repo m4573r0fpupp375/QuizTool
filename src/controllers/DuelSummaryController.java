@@ -11,6 +11,7 @@ import javafx.scene.text.Font;
 import logic.DuelGame;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class DuelSummaryController {
     @FXML
@@ -36,22 +37,20 @@ public class DuelSummaryController {
         this.mainController = mainController;
     }
 
-    public void setSummary(DuelGame duelGame){
+    public void setSummary(DuelGame duelGame) {
         this.duelGame = duelGame;
         winner.setFont(Font.font(25));
-        if(duelGame.getPlayer1points() > duelGame.getPlayer2points()){
-            winner.setText("The winner is: "+duelGame.getPlayer1()+"!");
-        }
-        else if(duelGame.getPlayer1points() == duelGame.getPlayer2points()){
+        if (duelGame.getPlayer1points() > duelGame.getPlayer2points()) {
+            winner.setText(duelGame.getPlayer1() + " wins!");
+        } else if (Objects.equals(duelGame.getPlayer1points(), duelGame.getPlayer2points())) {
             winner.setText("Draw!");
-        }
-        else{
-            winner.setText("The winner is: "+duelGame.getPlayer2()+"!");
+        } else {
+            winner.setText("The winner is: " + duelGame.getPlayer2() + "!");
         }
         player1.setText(duelGame.getPlayer1());
         player2.setText(duelGame.getPlayer2());
-        score1.setText(duelGame.getPlayer1points()+" points");
-        score2.setText(duelGame.getPlayer2points()+" points");
+        score1.setText(duelGame.getPlayer1points() + " points");
+        score2.setText(duelGame.getPlayer2points() + " points");
     }
 
     @FXML
@@ -59,11 +58,13 @@ public class DuelSummaryController {
         button1.setText("PLAY AGAIN");
         button3.setText("EXIT");
     }
+
     @FXML
     public void backToMainMenu(ActionEvent actionEvent) {
         System.out.println(actionEvent);
         mainController.reinitialize();
     }
+
     @FXML
     public void showRank(ActionEvent actionEvent) {
         System.out.println(actionEvent);
@@ -78,7 +79,7 @@ public class DuelSummaryController {
 
         RankingController controller = loader.getController();
         controller.setMainController(mainController);
-        controller.loadRank();
+//        controller.loadRank();
         mainController.addToStackPane(pane);
     }
 

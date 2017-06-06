@@ -54,7 +54,7 @@ public class MainMenuController {
     }
 
     @FXML
-    public void showRank(ActionEvent actionEvent) {
+    public void RankingPressed(ActionEvent actionEvent) {
         System.out.println(actionEvent);
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/RankingScreen.fxml"));
         Pane pane = null;
@@ -96,21 +96,5 @@ public class MainMenuController {
 
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
-    }
-
-    public void rankPressed(ActionEvent actionEvent) {
-        System.out.println(actionEvent);
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/RankingScreen.fxml"));
-        Pane pane = null;
-
-        try {
-            pane = loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        RankingController controller = loader.getController();
-        controller.setMainController(mainController);
-        mainController.addToStackPane(pane);
     }
 }

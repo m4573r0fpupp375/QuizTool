@@ -27,21 +27,20 @@ public class SoloSummaryController {
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
     }
-    public void setSummary(SoloGame soloGame){
+
+    public void setSummary(SoloGame soloGame) {
         this.soloGame = soloGame;
-        if(soloGame.getPlayerpoints() >= 22) {
+        if (soloGame.getPlayerpoints() >= 22) {
             text.setFont(Font.font(30));
             text.setText("Congratulation " + soloGame.getPlayer() + "!");
-        }
-        else if(soloGame.getPlayerpoints() >= 10){
+        } else if (soloGame.getPlayerpoints() >= 10) {
             text.setFont(Font.font(35));
             text.setText("Not bad " + soloGame.getPlayer() + "!");
-        }
-        else {
+        } else {
             text.setFont(Font.font(20));
             text.setText("You're drunk, go home " + soloGame.getPlayer() + "!");
         }
-        points.setText("You've got: " + soloGame.getPlayerpoints() + "/30 points!");
+        points.setText("Points: " + soloGame.getPlayerpoints() + "/30 points!");
     }
 
     @FXML
@@ -57,6 +56,7 @@ public class SoloSummaryController {
         System.out.println(actionEvent);
         mainController.reinitialize();
     }
+
     @FXML
     public void showRank(ActionEvent actionEvent) {
         System.out.println(actionEvent);
