@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
 
@@ -16,6 +15,7 @@ public class MainMenuController {
     public Button duel;
     public Button options;
     public Button exit;
+    public Button rank;
 
     private MainController mainController;
 
@@ -96,5 +96,21 @@ public class MainMenuController {
 
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
+    }
+
+    public void rankPressed(ActionEvent actionEvent) {
+        System.out.println(actionEvent);
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/RankingScreen.fxml"));
+        Pane pane = null;
+
+        try {
+            pane = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        RankingController controller = loader.getController();
+        controller.setMainController(mainController);
+        mainController.addToStackPane(pane);
     }
 }

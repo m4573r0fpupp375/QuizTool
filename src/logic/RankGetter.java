@@ -14,7 +14,7 @@ public class RankGetter {
             connection = DriverManager.getConnection("jdbc:sqlite:questions.sqlite");
             connection.setAutoCommit(false);
 
-            //name, result
+            //name, points
             String sqlQuery = "select * from Rank order by 2 desc limit 10;";
             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -37,7 +37,7 @@ public class RankGetter {
         }
         System.out.println(result.size());
         for(int i=0; i<result.size(); i++){
-            System.out.println(result.get(i).name+" "+result.get(i).result);
+            System.out.println(result.get(i).name+" "+result.get(i).points);
         }
         return result;
     }

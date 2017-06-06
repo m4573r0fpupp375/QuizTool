@@ -4,17 +4,17 @@ import java.util.LinkedList;
 
 public class RankRecord extends LinkedList {
     String name;
-    Integer result;
+    Integer points;
 
-    RankRecord(String name, Integer result) {
+    RankRecord(String name, Integer points) {
         this.name = name;
-        this.result  = result;
+        this.points = points;
     }
 
     public String getName(){
         return name;
     }
     public Integer getPoints(){
-        return result;
+        return points;
     }
 }

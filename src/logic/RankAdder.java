@@ -1,20 +1,20 @@
 package logic;
 
 import java.sql.*;
-import java.util.LinkedList;
 
 public class RankAdder {
 
     public void add(RankRecord rankRecord) {
         Connection connection = null;
         if (rankRecord.name == null || rankRecord.name.equals("")) rankRecord.name = "'unknown'";
+        if (rankRecord.points == null || rankRecord.points < 0) rankRecord.points = 0;
 
         try {
             Class.forName("org.sqlite.JDBC");
             connection = DriverManager.getConnection("jdbc:sqlite:questions.sqlite");
             connection.setAutoCommit(false);
 
-            //name, result
+            //name, points
             String sqlQuery = "SELECT COUNT(*) FROM Rank";
             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -25,7 +25,7 @@ public class RankAdder {
                 sqlQuery = "INSERT INTO Rank(name, points) VALUES (?, ?)";
                 preparedStatement = connection.prepareStatement(sqlQuery);
                 preparedStatement.setString(1, rankRecord.name);
-                preparedStatement.setInt(2, rankRecord.result);
+                preparedStatement.setInt(2, rankRecord.points);
                 System.out.println(preparedStatement);
                 preparedStatement.executeUpdate();
                 connection.commit();
@@ -37,7 +37,7 @@ public class RankAdder {
                 String prevName = resultSet.getString("name");
                 Integer prevResult = resultSet.getInt("points");
 
-                if (prevResult < rankRecord.result) {
+                if (prevResult < rankRecord.points) {
                     sqlQuery = "DELETE FROM Rank WHERE name LIKE ? AND points = ?";
                     preparedStatement = connection.prepareStatement(sqlQuery);
                     preparedStatement.setString(1, prevName);
@@ -49,7 +49,7 @@ public class RankAdder {
                     sqlQuery = "INSERT INTO Rank VALUES (?, ?);";
                     preparedStatement = connection.prepareStatement(sqlQuery);
                     preparedStatement.setString(1, rankRecord.name);
-                    preparedStatement.setInt(2, rankRecord.result);
+                    preparedStatement.setInt(2, rankRecord.points);
                     preparedStatement.executeUpdate();
                     connection.commit();
                 }
