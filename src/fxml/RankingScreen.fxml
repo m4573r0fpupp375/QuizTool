@@ -10,8 +10,8 @@
         <Button layoutX="28.0" layoutY="24.0" mnemonicParsing="false" onAction="#backToMainMenu" text="MAIN MENU" />
       <TableView fx:id="rank" layoutX="80.0" layoutY="80.0" prefHeight="260.0" prefWidth="440.0">
         <columns>
-          <TableColumn fx:id="name" prefWidth="220.0" text="C1" />
-          <TableColumn fx:id="points" prefWidth="220.0" text="C2" />
+          <TableColumn fx:id="name" prefWidth="220.0" text="NICKNAME" />
+          <TableColumn fx:id="points" prefWidth="220.0" text="POINTS" />
         </columns>
       </TableView>
     </children>

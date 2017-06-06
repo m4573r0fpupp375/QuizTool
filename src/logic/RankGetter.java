@@ -15,7 +15,7 @@ public class RankGetter {
             connection.setAutoCommit(false);
 
             //name, result
-            String sqlQuery = "select * from Rank order by 2 limit 10;";
+            String sqlQuery = "select * from Rank order by 2 desc limit 10;";
             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -35,7 +35,10 @@ public class RankGetter {
                 System.exit(0);
             }
         }
-
+        System.out.println(result.size());
+        for(int i=0; i<result.size(); i++){
+            System.out.println(result.get(i).name+" "+result.get(i).result);
+        }
         return result;
     }
 }

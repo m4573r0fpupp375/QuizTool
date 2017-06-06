@@ -1,30 +1,50 @@
 package controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import logic.RankGetter;
+import logic.RankRecord;
 
-/**
- * Created by Bartek on today. :)
- */
+import java.util.Iterator;
+import java.util.LinkedList;
+
 public class RankingController {
     @FXML
-    private TableView rank;
+    private TableView<RankRecord> table = new TableView<>();
     @FXML
-    private TableColumn name;
+    private TableColumn<RankRecord, String> name = new TableColumn<>("NICKNAME");
     @FXML
-    private TableColumn points;
+    private TableColumn<RankRecord, Integer> points = new TableColumn<>("POINTS");
 
     private MainController mainController;
-    private RankGetter rankGetter;
+    private RankGetter rankGetter = new RankGetter();
+    private LinkedList<RankRecord> rankList = new LinkedList<>();
 
     @FXML
     public void initialize() {
-        rank.setVisible(true);
-        //player1.setText(((DuelGame)mainController.getGame()).getPlayer1());
-        //player2.setText(((DuelGame)mainController.getGame()).getPlayer2());
+        table.setVisible(true);
+        table.setEditable(false);
+        table.setStyle("");
+
+        name.setCellValueFactory(new PropertyValueFactory<RankRecord, String>("name"));
+        points.setCellValueFactory(new PropertyValueFactory<RankRecord, Integer>("points"));
+    }
+
+    public void loadRank(){
+        final ObservableList<RankRecord> items = FXCollections.observableArrayList();
+        rankList = rankGetter.get();
+
+        for(int i=0; i<rankList.size(); i++) {
+            items.add(new RankRecord(rankList.get(i).getName(), rankList.get(i).getPoints()));
+        }
+
+        table.setItems(items);
+        table.getColumns().addAll(name, points);
     }
 
     @FXML

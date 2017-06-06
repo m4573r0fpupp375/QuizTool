@@ -6,22 +6,27 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainMenuController">
    <children>
-      <Button fx:id="solo" layoutX="85.0" layoutY="53.0" mnemonicParsing="false" onAction="#soloPressed" prefHeight="46.0" prefWidth="139.0" text="SOLO" textAlignment="CENTER">
+      <Button fx:id="solo" layoutX="85.0" layoutY="40.0" mnemonicParsing="false" onAction="#soloPressed" prefHeight="50.0" prefWidth="139.0" text="SOLO" textAlignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button fx:id="duel" layoutX="85.0" layoutY="134.0" mnemonicParsing="false" onAction="#duelPressed" prefHeight="46.0" prefWidth="139.0" text="DUEL" textAlignment="CENTER">
+      <Button fx:id="duel" layoutX="85.0" layoutY="105.0" mnemonicParsing="false" onAction="#duelPressed" prefHeight="50.0" prefWidth="139.0" text="DUEL" textAlignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button fx:id="options" layoutX="85.0" layoutY="218.0" mnemonicParsing="false" onAction="#optionsPressed" text="OPTIONS" textAlignment="CENTER">
+      <Button fx:id="options" layoutX="85.0" layoutY="235.0" mnemonicParsing="false" onAction="#optionsPressed" prefHeight="50.0" prefWidth="139.0" text="OPTIONS" textAlignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button fx:id="exit" layoutX="85.0" layoutY="298.0" mnemonicParsing="false" onAction="#exitPressed" prefHeight="46.0" prefWidth="139.0" text="EXIT" textAlignment="CENTER">
+      <Button fx:id="exit" layoutX="85.0" layoutY="300.0" mnemonicParsing="false" onAction="#exitPressed" prefHeight="50.0" prefWidth="139.0" text="EXIT" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="rank" layoutX="85.0" layoutY="170.0" mnemonicParsing="false" onAction="#showRank" prefHeight="50.0" prefWidth="139.0" text="RANKING" textAlignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>

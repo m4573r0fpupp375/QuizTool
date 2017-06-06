@@ -58,6 +58,7 @@ public class DuelSummaryController {
 
         RankingController controller = loader.getController();
         controller.setMainController(mainController);
+        controller.loadRank();
         mainController.addToStackPane(pane);
     }
     @FXML

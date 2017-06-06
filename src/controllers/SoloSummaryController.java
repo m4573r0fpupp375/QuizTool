@@ -47,6 +47,7 @@ public class SoloSummaryController {
 
         RankingController controller = loader.getController();
         controller.setMainController(mainController);
+        controller.loadRank();
         mainController.addToStackPane(pane);
     }
 

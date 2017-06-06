@@ -11,7 +11,10 @@ public class RankRecord extends LinkedList {
         this.result  = result;
     }
 
-    public String toString() {
-        return name + " " + result;
+    public String getName(){
+        return name;
+    }
+    public Integer getPoints(){
+        return result;
     }
 }
