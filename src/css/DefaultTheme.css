@@ -5,6 +5,9 @@
 Label {
     -fx-text-fill: white;
 }
+#text2{
+     -fx-text-fill: #7c7b7b;
+}
 
 .choice-box > .label {
     -fx-text-fill: black;

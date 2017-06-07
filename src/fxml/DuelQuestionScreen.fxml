@@ -38,5 +38,13 @@
             <Font size="18.0" />
          </font>
       </Label>
+      <Label fx:id="o" layoutX="226.0" layoutY="301.0" prefHeight="17.0" prefWidth="63.0" text="PLAYER2 O" textFill="#7c7b7b" id = "text2"/>
+      <Label fx:id="q" layoutX="18.0" layoutY="301.0" prefHeight="17.0" prefWidth="63.0" text="PLAYER1 Q" textFill="#7c7b7b" id = "text2"/>
+      <Label fx:id="w" layoutX="313.0" layoutY="301.0" prefHeight="17.0" prefWidth="63.0" text="PLAYER1 W" textFill="#7c7b7b" id = "text2"/>
+      <Label fx:id="p" layoutX="524.0" layoutY="301.0" prefHeight="17.0" prefWidth="63.0" text="PLAYER2 P" textFill="#7c7b7b" id = "text2"/>
+      <Label fx:id="a" layoutX="18.0" layoutY="331.0" prefHeight="17.0" prefWidth="63.0" text="PLAYER1 A" textFill="#7c7b7b" id = "text2"/>
+      <Label fx:id="k" layoutX="226.0" layoutY="331.0" prefHeight="17.0" prefWidth="63.0" text="PLAYER2 K" textFill="#7c7b7b" id = "text2"/>
+      <Label fx:id="s" layoutX="313.0" layoutY="331.0" prefHeight="17.0" prefWidth="63.0" text="PLAYER1 S" textFill="#7c7b7b" id = "text2"/>
+      <Label fx:id="l" layoutX="524.0" layoutY="331.0" prefHeight="17.0" prefWidth="63.0" text="PLAYER2 L" textFill="#7c7b7b" id = "text2"/>
    </children>
 </Pane>
