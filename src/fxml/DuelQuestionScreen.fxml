@@ -10,41 +10,41 @@
       <Button layoutX="28.0" layoutY="24.0" mnemonicParsing="false" onAction="#backToMainMenu" text="MAIN MENU" />
       <Button fx:id="ans3" layoutX="10.0" layoutY="331.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="284.0" text="Button">
          <font>
-            <Font size="18.0" />
+            <Font size="15.0" />
          </font></Button>
       <Button fx:id="ans4" layoutX="306.0" layoutY="331.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="284.0" text="Button">
          <font>
-            <Font size="18.0" />
+            <Font size="15.0" />
          </font></Button>
       <Button fx:id="ans1" layoutX="10.0" layoutY="258.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="284.0" text="Button">
          <font>
-            <Font size="18.0" />
+            <Font size="15.0" />
          </font></Button>
       <Button fx:id="ans2" layoutX="306.0" layoutY="258.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="284.0" text="Button">
          <font>
-            <Font size="18.0" />
+            <Font size="15.0" />
          </font></Button>
       <Label fx:id="questionLabel" layoutX="28.0" layoutY="66.0" prefHeight="100.0" prefWidth="545.0" text="Label" textAlignment="CENTER">
          <font>
-            <Font size="18.0" />
+            <Font size="15.0" />
          </font></Label>
       <Label fx:id="setLabel" layoutX="364.0" layoutY="24.0" prefHeight="26.0" prefWidth="95.0" text="Set: ">
          <font>
-            <Font size="18.0" />
+            <Font size="15.0" />
          </font>
       </Label>
       <Label fx:id="qLabel" layoutX="481.0" layoutY="24.0" prefHeight="26.0" prefWidth="95.0" text="Q:">
          <font>
-            <Font size="18.0" />
+            <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="o" layoutX="226.0" layoutY="301.0" prefHeight="17.0" prefWidth="63.0" text="PLAYER2 O" textFill="#7c7b7b" id = "text2"/>
-      <Label fx:id="q" layoutX="18.0" layoutY="301.0" prefHeight="17.0" prefWidth="63.0" text="PLAYER1 Q" textFill="#7c7b7b" id = "text2"/>
-      <Label fx:id="w" layoutX="313.0" layoutY="301.0" prefHeight="17.0" prefWidth="63.0" text="PLAYER1 W" textFill="#7c7b7b" id = "text2"/>
-      <Label fx:id="p" layoutX="524.0" layoutY="301.0" prefHeight="17.0" prefWidth="63.0" text="PLAYER2 P" textFill="#7c7b7b" id = "text2"/>
-      <Label fx:id="a" layoutX="18.0" layoutY="331.0" prefHeight="17.0" prefWidth="63.0" text="PLAYER1 A" textFill="#7c7b7b" id = "text2"/>
-      <Label fx:id="k" layoutX="226.0" layoutY="331.0" prefHeight="17.0" prefWidth="63.0" text="PLAYER2 K" textFill="#7c7b7b" id = "text2"/>
-      <Label fx:id="s" layoutX="313.0" layoutY="331.0" prefHeight="17.0" prefWidth="63.0" text="PLAYER1 S" textFill="#7c7b7b" id = "text2"/>
-      <Label fx:id="l" layoutX="524.0" layoutY="331.0" prefHeight="17.0" prefWidth="63.0" text="PLAYER2 L" textFill="#7c7b7b" id = "text2"/>
+      <Label id="text2" fx:id="o" layoutX="216.0" layoutY="301.0" prefHeight="17.0" prefWidth="90.0" text="PLAYER2 O" textFill="#7c7b7b" />
+      <Label id="text2" fx:id="q" layoutX="15.0" layoutY="301.0" prefHeight="17.0" prefWidth="90.0" text="PLAYER1 Q" textFill="#7c7b7b" />
+      <Label id="text2" fx:id="w" layoutX="313.0" layoutY="301.0" prefHeight="17.0" prefWidth="90.0" text="PLAYER1 W" textFill="#7c7b7b" />
+      <Label id="text2" fx:id="p" layoutX="514.0" layoutY="301.0" prefHeight="17.0" prefWidth="90.0" text="PLAYER2 P" textFill="#7c7b7b" />
+      <Label id="text2" fx:id="a" layoutX="15.0" layoutY="331.0" prefHeight="17.0" prefWidth="90.0" text="PLAYER1 A" textFill="#7c7b7b" />
+      <Label id="text2" fx:id="k" layoutX="216.0" layoutY="331.0" prefHeight="17.0" prefWidth="90.0" text="PLAYER2 K" textFill="#7c7b7b" />
+      <Label id="text2" fx:id="s" layoutX="313.0" layoutY="331.0" prefHeight="17.0" prefWidth="90.0" text="PLAYER1 S" textFill="#7c7b7b" />
+      <Label id="text2" fx:id="l" layoutX="514.0" layoutY="331.0" prefHeight="17.0" prefWidth="90.0" text="PLAYER2 L" textFill="#7c7b7b" />
    </children>
 </Pane>

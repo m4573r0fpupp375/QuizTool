@@ -6,7 +6,7 @@ public class RankAdder {
 
     public void add(RankRecord rankRecord) {
         Connection connection = null;
-        if (rankRecord.name == null || rankRecord.name.equals("")) rankRecord.name = "'unknown'";
+        if (rankRecord.name == null || rankRecord.name.equals("")) rankRecord.name = "unknown";
         if (rankRecord.points == null || rankRecord.points < 0) rankRecord.points = 0;
 
         try {

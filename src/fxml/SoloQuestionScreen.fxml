@@ -22,20 +22,20 @@
          </font></Button>
       <Button fx:id="ans2" layoutX="306.0" layoutY="258.0" mnemonicParsing="false" onAction="#setAnswer" onMouseEntered="#reDye" onMouseExited="#dye" prefHeight="60.0" prefWidth="284.0" text="Button">
          <font>
-            <Font size="14.0" />
+            <Font size="15.0" />
          </font></Button>
       <Label fx:id="questionLabel" layoutX="28.0" layoutY="66.0" prefHeight="100.0" prefWidth="545.0" text="Label" textAlignment="CENTER">
          <font>
-            <Font size="18.0" />
+            <Font size="15.0" />
          </font></Label>
       <Label fx:id="setLabel" layoutX="364.0" layoutY="24.0" prefHeight="26.0" prefWidth="95.0" text="Set: ">
          <font>
-            <Font size="18.0" />
+            <Font size="15.0" />
          </font>
       </Label>
       <Label fx:id="qLabel" layoutX="481.0" layoutY="24.0" prefHeight="26.0" prefWidth="95.0" text="Q:">
          <font>
-            <Font size="18.0" />
+            <Font size="15.0" />
          </font>
       </Label>
    </children>
