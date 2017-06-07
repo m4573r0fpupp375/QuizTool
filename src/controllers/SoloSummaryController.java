@@ -31,7 +31,7 @@ public class SoloSummaryController {
         this.soloGame = soloGame;
         if(soloGame.getPlayerpoints() >= 22) {
             text.setFont(Font.font(30));
-            text.setText("Congratulation " + soloGame.getPlayer() + "!");
+            text.setText("Congratulations " + soloGame.getPlayer() + "!");
         }
         else if(soloGame.getPlayerpoints() >= 10){
             text.setFont(Font.font(35));
